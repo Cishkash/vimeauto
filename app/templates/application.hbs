@@ -1,3 +1,7 @@
-{{outlet}}
+{{navigation-bar}}
 
-Oh hai dere.
+{{#each model as |category|}}
+  {{category-card category=category}}
+{{/each}}
+
+{{outlet}}
