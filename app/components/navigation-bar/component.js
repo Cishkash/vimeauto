@@ -9,5 +9,6 @@ const {inject} = Ember;
  * @extends Ember.Component
  */
 export default Ember.Component.extend({
+  // Service injections
   category: inject.service()
 });

@@ -1,6 +1,10 @@
 <nav class="navbar navbar-full navbar-dark bg-inverse">
   <a class="navbar-brand" href="#">Vime(auto)</a>
   <span class="navbar-text float-xs-right text-muted">
-    You haven't added any categories yet!
+    {{#each category.selectedCategories as |selectedCategory|}}
+      {{selectCategory.name}}
+    {{else}}
+      You haven't added any categories yet!
+    {{/each}}
   </span>
 </nav>

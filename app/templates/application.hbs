@@ -1,7 +1,11 @@
 {{navigation-bar}}
 
-{{#each model as |category|}}
-  {{category-card category=category}}
-{{/each}}
+<div class="container-fluid">
+  <div class="row flex-items-xs-center">
+    {{#each model as |category|}}
+      {{category-card category=category}}
+    {{/each}}
+  </div>
+</div>
 
 {{outlet}}
