@@ -1,5 +1,23 @@
 & {
+  .btn-group {
+    button{
+      &:first-child {
+        border-right: 1px solid #333;
+      }
+
+      &:last-child {
+        border-left: 1px solid #333;
+      }
+
+      &:hover {
+        filter: brightness(90%);
+      }
+    }
+  }
   .navbar-brand {
     font-family: 'Arima Madurai', cursive;
+  }
+  .delete-gap {
+    margin-left: 0.3rem;
   }
 }

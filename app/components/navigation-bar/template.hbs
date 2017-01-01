@@ -1,8 +1,13 @@
 <nav class="navbar navbar-fixed-top navbar-full navbar-dark bg-inverse">
   <a class="navbar-brand" href="#">Vime(auto)</a>
-  <span class="navbar-text float-xs-right align-middle text-muted">
+  <span class="navbar-text float-xs-right align-middle text-white">
     {{#each categoryService.selectedCategories as |selectedCategory|}}
-      <button class="btn btn-sm" style={{selectedCategory.assignedColor}}>{{selectedCategory.name}}</button>
+      <div class="btn-group btn-group-sm" role="group">
+        <button type="button" class="btn" style={{selectedCategory.assignedColor}}>{{selectedCategory.name}}</button>
+        <button type="button" class="btn" {{action "removeCategory" selectedCategory target=categoryService}} style={{selectedCategory.assignedColor}}>
+          {{fa-icon "times-circle"}}
+        </button>
+      </div>
     {{else}}
       You haven't added any categories yet!
     {{/each}}

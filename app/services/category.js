@@ -30,6 +30,15 @@ export default Ember.Service.extend({
   // Methods
   // ---------------------------------------------------------------------------
 
+  _assignAnotherColor() {
+    let colorArray = [];
+
+    for (let i = 0; i < 3; ++i) {
+      colorArray.push(Math.floor(Math.random() * (255-125)) + 125);
+    }
+
+    return `background-color: rgb(${colorArray.join()});`
+  },
   /**
    * Returns a randomly assigned color.
    *
@@ -39,20 +48,17 @@ export default Ember.Service.extend({
    */
   _assignColor() {
     const toHex = (toHex) => {
-      // Bump the color up if it's too dark.
-      // Sometimes it's still too dark /sigh.
-      let color = (toHex < 75) ? toHex + 75 : toHex
       // Converts it to hex
-      let hex = color.toString(16);
+      let hex = toHex.toString(16);
       return hex.length == 1 ? "0" + hex : hex;
     };
 
     let colorArray = [],
         colorString;
 
-    // Get 3 random numbers
+    // Get 3 random numbers between 75 and 255
     for (let i = 0; i < 3; ++i) {
-      colorArray.push(Math.floor(Math.random() * 255))
+      colorArray.push(Math.floor(Math.random() * (255-75) + 75));
     }
 
     // Cycle through those values to get a hex value
@@ -79,7 +85,7 @@ export default Ember.Service.extend({
     if ( selectedCategories.length <= 4 &&
          !selectedCategories.find(selectedCategory => selectedCategory.name === category.name) ) {
 
-      category.assignedColor = this._assignColor();
+      Ember.set(category, 'assignedColor', this._assignAnotherColor());
       selectedCategories.push(category);
       this.set('selectedCategories', selectedCategories);
       this.notifyPropertyChange('selectedCategories');
@@ -107,10 +113,12 @@ export default Ember.Service.extend({
    * @param categoryIndex The index of the category object set in the
    *                      selectedCategories array.
    */
-  removeCategory(categoryIndex) {
-    let selectedCategories = this.get('selectedCategories');
+  removeCategory(category) {
+    let selectedCategories = this.get('selectedCategories').filter( (el) => {
+      return el.name !== category.name;
+    });
 
-    this.set('selectedCategories', selectCategories.slice(categoryIndex, 1));
+    this.set('selectedCategories', selectedCategories);
     this.set('atCapacity', false);
   }
 });

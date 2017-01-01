@@ -11,9 +11,9 @@
         <div class="carousel-caption text-sm-left">
           <h3>{{trending.name}}</h3>
           <p>{{trending.user.name}}{{#if trending.user.location}}<small class="text-muted"> - {{trending.user.location}}</small>{{/if}}</p>
-          <p>{{#each trending.user.websites as |website|}}
-            <small><a href="{{website.link}}">{{website.link}}</a></small> {{#if (not-eq website trending.user.websites.lastObject)}} | {{/if}}
-          {{/each}}</p>
+          {{#each trending.user.websites as |website|}}
+            <small><a href="{{website.link}}">{{website.link}}</a></small><br>
+          {{/each}}
         </div>
       </div>
     {{/each}}

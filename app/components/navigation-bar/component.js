@@ -10,7 +10,5 @@ const {inject} = Ember;
  */
 export default Ember.Component.extend({
   // Service injections
-  categoryService: inject.service('category'),
-
-  selectedCategories: []
+  categoryService: inject.service('category')
 });
