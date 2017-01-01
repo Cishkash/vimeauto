@@ -1,9 +1,17 @@
 & {
   margin-bottom: 1rem;
-  
+
   .carousel-item {
     height: 25rem;
     background-position: right;
     background-repeat: no-repeat;
+  }
+
+  .carousel-caption {
+    top: 0;
+    height: 10rem;
+    margin-top: 2rem;
+    left: 10%;
+    // background-color: rgba(0,0,0,0.6);
   }
 }
