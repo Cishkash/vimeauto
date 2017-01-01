@@ -1,7 +1,7 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('fluid-jumbotron', 'Integration | Component | fluid jumbotron', {
+moduleForComponent('vimeauto-footer', 'Integration | Component | vimeauto footer', {
   integration: true
 });
 
@@ -10,15 +10,15 @@ test('it renders', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{fluid-jumbotron}}`);
+  this.render(hbs`{{vimeauto-footer}}`);
 
   assert.equal(this.$().text().trim(), '');
 
   // Template block usage:
   this.render(hbs`
-    {{#fluid-jumbotron}}
+    {{#vimeauto-footer}}
       template block text
-    {{/fluid-jumbotron}}
+    {{/vimeauto-footer}}
   `);
 
   assert.equal(this.$().text().trim(), 'template block text');

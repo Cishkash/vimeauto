@@ -1,8 +1,8 @@
-<nav class="navbar navbar-full navbar-dark bg-inverse">
+<nav class="navbar navbar-fixed-top navbar-full navbar-dark bg-inverse">
   <a class="navbar-brand" href="#">Vime(auto)</a>
-  <span class="navbar-text float-xs-right text-muted">
-    {{#each category.selectedCategories as |selectedCategory|}}
-      {{selectCategory.name}}
+  <span class="navbar-text float-xs-right align-middle text-muted">
+    {{#each categoryService.selectedCategories as |selectedCategory|}}
+      <button class="btn btn-sm" style={{selectedCategory.assignedColor}}>{{selectedCategory.name}}</button>
     {{else}}
       You haven't added any categories yet!
     {{/each}}

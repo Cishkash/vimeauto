@@ -8,10 +8,8 @@ import Ember from 'ember';
  * @extends Ember.Route
  */
 export default Ember.Route.extend({
-  model() {
-    return Ember.RSVP.hash({
-      categories: this.store.findAll('category'),
-      trendings: this.store.findAll('trending')
-    });
+  categoryService: Ember.inject.service('category'),
+  init() {
+    this._super(...arguments);
   }
 });

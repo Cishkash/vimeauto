@@ -2,9 +2,7 @@ $enable-flex: true;
 @import "bootstrap";
 @import "pod-styles";
 
-.no-gutter {
-  padding-left: 0;
-  padding-right: 0;
-  margin-left: 0;
-  margin-right: 0;
+body,
+html {
+  font-family: 'Lato', sans-serif;
 }

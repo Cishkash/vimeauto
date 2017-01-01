@@ -1,10 +1,24 @@
 & {
+  box-shadow: 0 1px 3px #ddd;
+  margin-top: 4.3rem;
   margin-bottom: 1rem;
 
   .carousel-item {
     height: 25rem;
     background-position: right;
     background-repeat: no-repeat;
+
+    > img {
+      bottom: 0;
+      transition: bottom 7s ease-out;
+    }
+
+    &.active {
+      > img {
+        position: relative;
+        bottom: 6rem;
+      }
+    }
   }
 
   .carousel-caption {
@@ -12,6 +26,5 @@
     height: 10rem;
     margin-top: 2rem;
     left: 10%;
-    // background-color: rgba(0,0,0,0.6);
   }
 }

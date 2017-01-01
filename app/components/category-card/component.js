@@ -10,5 +10,20 @@ const {inject} = Ember;
  */
 export default Ember.Component.extend({
   // Services
-  category: inject.service()
+  categoryService: inject.service('category'),
+
+  /**
+   * The category object passed in from the application model route.
+   *
+   * @property category
+   * @type {Object}
+   * @default null
+   */
+  category: null,
+
+  actions: {
+    addSubCategory(subCategory) {
+      this.get('categoryService').addCategory(subCategory);
+    }
+  }
 });

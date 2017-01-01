@@ -1,7 +1,7 @@
 <div id="carousel-trending" class="carousel slide" style="background:black" data-ride="carousel">
   <ol class="carousel-indicators">
     {{#each trendings as |trending index|}}
-      <li data-target="#carousel-example-generic {{if (eq trending trendings.firstObject) 'active'}}" data-slide-to={{index}}></li>
+      <li data-target="#carousel-example-generic" class="{{if (eq trending trendings.firstObject) 'active'}}" data-slide-to={{index}}></li>
     {{/each}}
   </ol>
   <div class="carousel-inner text-sm-right" role="listbox">
