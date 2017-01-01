@@ -1,8 +1,10 @@
 {{navigation-bar}}
 
+{{trending-carousel trendings=model.trendings}}
+
 <div class="container-fluid">
   <div class="row flex-items-xs-center">
-    {{#each model as |category|}}
+    {{#each model.categories as |category|}}
       {{category-card category=category}}
     {{/each}}
   </div>

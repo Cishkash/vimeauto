@@ -1,8 +1,13 @@
 <div class="col-xs">
-  <div class="card">
-    <img class="card-img-top" src="{{category.pictures.sizes.2.link}}" alt="{{category.name}}">
-    <div class="card-block">
-      {{category.name}}
+  <div class="card card-inverse card-outline-primary">
+    <img class="card-img-top img-fluid" src="{{category.pictures.sizes.2.link}}" alt="{{category.name}}">
+    <div class="card-img-overlay">
+      <h5 class="card-title">{{category.name}}</h5>
+      <p class="card-text">
+        {{#each category.subcategories as |subcategory|}}
+          <small><a href="#">{{subcategory.name}}</a> {{#if (not-eq subcategory category.subcategories.lastObject)}} | {{/if}}</small>
+        {{/each}}
+      </p>
     </div>
   </div>
 </div>

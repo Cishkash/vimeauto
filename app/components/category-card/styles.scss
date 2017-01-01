@@ -1,0 +1,12 @@
+& {
+  margin-bottom: 1rem;
+
+  .card-img-overlay {
+    background: rgba(0,0,0,0.75);
+    padding: 0.5rem;
+    transition: background-color 0.5s ease;
+  }
+  .card-img-overlay:hover {
+    background-color: rgba(0,0,0,0.9);
+  }
+}
