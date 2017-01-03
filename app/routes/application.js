@@ -8,8 +8,5 @@ import Ember from 'ember';
  * @extends Ember.Route
  */
 export default Ember.Route.extend({
-  categoryService: Ember.inject.service('category'),
-  init() {
-    this._super(...arguments);
-  }
+  categoryService: Ember.inject.service('category')
 });

@@ -37,7 +37,7 @@ export default Ember.Service.extend({
       colorArray.push(Math.floor(Math.random() * (255-125)) + 125);
     }
 
-    return `background-color: rgb(${colorArray.join()});`
+    return Ember.String.htmlSafe(`background-color: rgb(${colorArray.join()})`);
   },
   /**
    * Returns a randomly assigned color.
