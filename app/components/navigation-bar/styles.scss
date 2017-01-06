@@ -1,17 +1,19 @@
 & {
   .btn-group {
-    button{
-      &:first-child {
-        border-right: 1px solid #333;
-      }
-
-      &:last-child {
-        border-left: 1px solid #333;
-      }
-
+    button {
       &:hover {
-        filter: brightness(90%);
+        opacity: .90;
       }
+    }
+    .btn-category {
+      border-right: 1px dotted #333;
+    }
+    .btn-remove {
+      border-left: 1px dotted #333;
+      border-radius: 0 0.2rem 0.2rem 0 !important;
+    }
+    .dropdown-menu > button {
+      cursor: pointer;
     }
   }
   .navbar-brand {

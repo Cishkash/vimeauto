@@ -59,7 +59,7 @@ export default Ember.Service.extend({
     const toHex = (toHex) => {
       // Converts it to hex
       let hex = toHex.toString(16);
-      return hex.length == 1 ? "0" + hex : hex;
+      return hex.length === 1 ? "0" + hex : hex;
     };
 
     let colorArray = [],
