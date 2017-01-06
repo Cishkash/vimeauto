@@ -30,6 +30,15 @@ export default Ember.Service.extend({
   // Methods
   // ---------------------------------------------------------------------------
 
+  /**
+   * Attempt #2 at creating a random color. Still has the same faults but at the
+   * value ranges 125-255 this does appear to return brighter colors with less
+   * code.
+   *
+   * @method _assignAnotherColor
+   * @private
+   * @returns {String}
+   */
   _assignAnotherColor() {
     let colorArray = [];
 
@@ -40,7 +49,7 @@ export default Ember.Service.extend({
     return Ember.String.htmlSafe(`background-color: rgb(${colorArray.join()})`);
   },
   /**
-   * Returns a randomly assigned color.
+   * Returns a randomly assigned color with an entirely overthought method.
    *
    * @method _assignColor
    * @private

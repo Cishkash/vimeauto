@@ -19,11 +19,5 @@ export default Ember.Component.extend({
    * @type {Object}
    * @default null
    */
-  category: null,
-
-  actions: {
-    addSubCategory(subCategory) {
-      this.get('categoryService').addCategory(subCategory);
-    }
-  }
+  category: null
 });

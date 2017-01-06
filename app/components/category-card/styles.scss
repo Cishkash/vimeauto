@@ -2,8 +2,12 @@
   cursor: pointer;
   margin-bottom: 1rem;
 
+  a {
+    color: $link-color;
+  }
+
   .card-img-overlay {
-    background: rgba(0,0,0,0.75);
+    background: rgba(0,0,0,0.8);
     padding: 0.5rem;
     transition: background-color 0.5s ease;
   }

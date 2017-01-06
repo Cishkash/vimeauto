@@ -2,10 +2,10 @@
   <div class="card card-inverse card-outline-primary">
     <img class="card-img-top img-fluid" src="{{category.pictures.sizes.2.link}}" alt="{{category.name}}">
     <div class="card-img-overlay">
-      <h5 class="card-title">{{category.name}} {{fa-icon "plus-circle" pull="right"}}</h5>
+      <h5 class="card-title">{{category.name}}</h5>
       <p class="card-text">
         {{#each category.subcategories as |subcategory|}}
-          <small><a {{action "addSubCategory" subcategory}}>{{subcategory.name}}</a>{{#if (not-eq subcategory category.subcategories.lastObject)}} | {{/if}}</small>
+          <small><a {{action "addCategory" subcategory target=categoryService}} href="#">{{subcategory.name}}</a>{{#if (not-eq subcategory category.subcategories.lastObject)}} | {{/if}}</small>
         {{/each}}
       </p>
     </div>
