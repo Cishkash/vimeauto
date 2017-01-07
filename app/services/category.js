@@ -95,7 +95,7 @@ export default Ember.Service.extend({
     // If they still have room and they're not trying to add something twice,
     // add the object to the array.
     if ( selectedCategories.length <= 4 &&
-         !selectedCategories.find(selectedCategory => selectedCategory.name === category.name) ) {
+         !selectedCategories.find(selectedCategory => selectedCategory.name === categoryName) ) {
 
       Ember.set(category, 'assignedColor', this._assignAnotherColor());
       Ember.set(category, 'name', categoryName);
