@@ -26,7 +26,7 @@ const defaultProperties = {
         }
       ],
       id: 0
-    }
+    };
 
 moduleForComponent('category-card', 'Integration | Component | category card', {
   integration: true,
@@ -35,9 +35,10 @@ moduleForComponent('category-card', 'Integration | Component | category card', {
   }
 });
 
-test('it renders', function(assert) {
-  this.render(hbs`{{category-card}}`);
-  console.log(this.$());
+test('Data rendering tests', function(assert) {
+  this.render(hbs`{{category-card category=category}}`);
 
-  assert.equal(this.$().text().trim(), '');
+  assert.ok(this.$('[data-test="card-category-image"]').attr('src').includes(defaultProperties.pictures.sizes[2].link), 'Renders the correct src link for the card-category-image');
+  assert.ok(this.$('[data-test="card-category-title"]').text().includes(defaultProperties.name), 'Renders the correct text inside card-category-title');
+  assert.ok(this.$('[data-test="card-category-subcategory"]').text().includes(defaultProperties.subcategories[0].name), 'Renders the correct text inside card-category-subcategory');
 });

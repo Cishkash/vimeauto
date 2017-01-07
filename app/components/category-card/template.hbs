@@ -1,9 +1,11 @@
 <div class="col-xs">
   <div class="card card-inverse card-outline-primary">
-    <img class="card-img-top img-fluid" src="{{category.pictures.sizes.2.link}}" alt="{{category.name}}">
+    <img class="card-img-top img-fluid" src="{{category.pictures.sizes.2.link}}" alt="{{category.name}}" data-test="card-category-image">
     <div class="card-img-overlay">
-      <h5 class="card-title"><a {{action "addCategory" category.name category.uri target=categoryService}} href="#">{{category.name}} {{fa-icon "plus-circle" pull="right"}}</a></h5>
-      <p class="card-text">
+      <h5 class="card-title" data-test="card-category-title">
+        <a {{action "addCategory" category.name category.uri target=categoryService}} href="#">{{category.name}} {{fa-icon "plus-circle" pull="right"}}</a>
+      </h5>
+      <p class="card-text" data-test="card-category-subcategory">
         {{#each category.subcategories as |subcategory|}}
           <small>{{subcategory.name}}{{#if (not-eq subcategory category.subcategories.lastObject)}} | {{/if}}</small>
         {{/each}}
