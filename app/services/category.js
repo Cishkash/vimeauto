@@ -86,8 +86,11 @@ export default Ember.Service.extend({
   * @method selectCategory
   * @param category The category object selected by the user
   */
-  addCategory(category) {
-    let selectedCategories = this.get('selectedCategories');
+  addCategory(categoryName, categoryUri) {
+    let category = {},
+        selectedCategories = this.get('selectedCategories');
+
+    this.set('error', false);
 
     // If they still have room and they're not trying to add something twice,
     // add the object to the array.
@@ -95,6 +98,9 @@ export default Ember.Service.extend({
          !selectedCategories.find(selectedCategory => selectedCategory.name === category.name) ) {
 
       Ember.set(category, 'assignedColor', this._assignAnotherColor());
+      Ember.set(category, 'name', categoryName);
+      Ember.set(category, 'uri', categoryUri);
+
       selectedCategories.push(category);
       this.set('selectedCategories', selectedCategories);
       this.notifyPropertyChange('selectedCategories');
@@ -119,12 +125,13 @@ export default Ember.Service.extend({
    * `selectedCategories`.
    *
    * @method removeCategory
-   * @param categoryIndex The index of the category object set in the
-   *                      selectedCategories array.
+   * @param selectedCategory The `selectedCategory` object slated for removal
    */
-  removeCategory(category) {
+  removeCategory(selectedCategory) {
+    // Takes the now pending removal `selectedCategory` and picks it out of the
+    // selectedCategories array.
     let selectedCategories = this.get('selectedCategories').filter( (el) => {
-      return el.name !== category.name;
+      return el.name !== selectedCategory.name;
     });
 
     this.set('selectedCategories', selectedCategories);
