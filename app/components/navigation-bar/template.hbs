@@ -16,10 +16,12 @@
           {{fa-icon "times-circle"}}
         </button>
         <div class="dropdown-menu dropdown-menu-right">
-          <button class="dropdown-item" type="button">Watch featured</button>
-          <button class="dropdown-item" type="button">Mix it up</button>
+          <a class="dropdown-item" href="#">Watch featured</a>
+          <a class="dropdown-item" href="#">Mix it up</a>
           <hr>
-          <button class="dropdown-item" type="button">Vimeauto a playlist</button>
+          <a class="dropdown-item {{if (lt categoryService.selectedCategories.length 2) 'text-muted disabled'}}" href="#">
+            Vimeauto a playlist
+          </a>
         </div>
       </div>
     {{else}}
