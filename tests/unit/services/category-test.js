@@ -1,8 +1,6 @@
 import { moduleFor, test } from 'ember-qunit';
 
 moduleFor('service:category', 'Unit | Service | category', {
-  // Specify the other units that are required for this test.
-  // needs: ['service:foo']
 });
 
 // Replace this with your real tests.
