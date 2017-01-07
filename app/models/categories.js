@@ -8,5 +8,5 @@ import DS from 'ember-data';
  * @extends DS.Model
  */
 export default DS.Model.extend({
-  categories: DS.belongsTo('category')
+  categories: DS.belongsTo()
 });
