@@ -3,10 +3,16 @@
   <span class="navbar-text float-xs-right align-middle text-white">
     {{#each categoryService.selectedCategories as |selectedCategory|}}
       <div class="btn-group btn-group-sm" role="group">
-        <button type="button" class="btn btn-category" style={{selectedCategory.assignedColor}} data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button type="button" class="btn btn-category"
+          style={{selectedCategory.assignedColor}} data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false"
+          data-test="navbar-queue-category-name">
           {{selectedCategory.name}}
         </button>
-        <button type="button" class="btn btn-remove" {{action "removeCategory" selectedCategory target=categoryService}} style={{selectedCategory.assignedColor}}>
+        <button type="button" class="btn btn-remove"
+          {{action "removeCategory" selectedCategory target=categoryService}}
+          style={{selectedCategory.assignedColor}}
+          data-test="navbar-queue-category-remove">
           {{fa-icon "times-circle"}}
         </button>
         <div class="dropdown-menu dropdown-menu-right">
@@ -17,7 +23,9 @@
         </div>
       </div>
     {{else}}
-      <span class="text-muted">You haven't added any categories yet!</span>
+      <span class="text-muted" data-test="navbar-queue-no-category">
+        You haven't added any categories yet!
+      </span>
     {{/each}}
   </span>
 </nav>
