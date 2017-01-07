@@ -1,25 +1,62 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
+const defaultProperties = [{
+  name: "Some rad title",
+  pictures: {
+    sizes: [
+      {
+        link: "https://i.vimeocdn.com/video/611324638_100x75.jpg?r=pad"
+      },
+      {
+        link: "https://i.vimeocdn.com/video/611324638_200x150.jpg?r=pad"
+      },
+      {
+        link: "https://i.vimeocdn.com/video/611324638_295x166.jpg?r=pad"
+      },
+      {
+        link: "https://i.vimeocdn.com/video/611324638_640x360.jpg?r=pad"
+      },
+      {
+        link: "https://i.vimeocdn.com/video/611324638_960x540.jpg?r=pad"
+      }
+    ]
+  },
+  user: {
+    name: "Some cool guy",
+    location: "Washington, DC",
+    websites: [
+      {
+        link: "some.cool.website"
+      }
+    ]
+  },
+  id: 0
+}];
+
 moduleForComponent('trending-carousel', 'Integration | Component | trending carousel', {
-  integration: true
+  integration: true,
+  beforeEach() {
+    this.set('trendings', defaultProperties);
+  }
 });
 
-test('it renders', function(assert) {
+test('Data test renders', function(assert) {
+  this.render(hbs`{{trending-carousel trendings=trendings}}`);
 
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+  assert.ok(
+    this.$('[data-test="trending-title-0"]').text().includes(defaultProperties[0].name),
+    'Carousel title renders');
 
-  this.render(hbs`{{trending-carousel}}`);
+  assert.ok(
+    this.$('[data-test="trending-user-0"]').text().includes(defaultProperties[0].user.name),
+    'Carousel user name renders');
 
-  assert.equal(this.$().text().trim(), '');
+  assert.ok(
+    this.$('[data-test="trending-location-0"]').text().includes(defaultProperties[0].user.location),
+    'Carousel user location renders');
 
-  // Template block usage:
-  this.render(hbs`
-    {{#trending-carousel}}
-      template block text
-    {{/trending-carousel}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.ok(
+    this.$('[data-test="trending-0-website-0"]').text().includes(defaultProperties[0].user.websites[0].link),
+    'Carousel websites render');
 });

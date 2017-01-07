@@ -1,18 +1,39 @@
-<div id="carousel-trending" class="carousel slide" style="background:black" data-ride="carousel">
+<div id="carousel-trending" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     {{#each trendings as |trending index|}}
-      <li data-target="#carousel-example-generic" class="{{if (eq trending trendings.firstObject) 'active'}}" data-slide-to={{index}}></li>
+      <li data-target="#carousel-trending-videos"
+        class="{{if (eq trending trendings.firstObject) 'active'}}"
+        data-slide-to={{index}} data-test="carousel-trending-count-{{index}}">
+      </li>
     {{/each}}
   </ol>
   <div class="carousel-inner text-sm-right" role="listbox">
-    {{#each trendings as |trending|}}
+    {{#each trendings as |trending index|}}
       <div class="carousel-item {{if (eq trending trendings.firstObject) 'active'}}">
-        <img src="{{trending.pictures.sizes.4.link}}" alt="{{trending.name}} picture">
+        <img src="{{trending.pictures.sizes.4.link}}"
+          alt="{{trending.name}} picture"
+          data-test="trending-slide-img-{{index}}">
+
         <div class="carousel-caption text-sm-left">
-          <h3>{{trending.name}}</h3>
-          <p>{{trending.user.name}}{{#if trending.user.location}}<small class="text-muted"> - {{trending.user.location}}</small>{{/if}}</p>
-          {{#each trending.user.websites as |website|}}
-            <small><a href="{{website.link}}">{{website.link}}</a></small><br>
+          <h3 data-test="trending-title-{{index}}">
+            {{trending.name}}
+          </h3>
+          <p data-test="trending-user-{{index}}">
+            {{trending.user.name}}
+            {{#if trending.user.location}}
+              <small class="text-muted" data-test="trending-location-{{index}}">
+                &nbsp;- {{trending.user.location}}
+              </small>
+            {{/if}}
+          </p>
+          {{#each trending.user.websites as |website siteIndex|}}
+            <small>
+              <a href="{{website.link}}"
+                data-test="trending-{{index}}-website-{{siteIndex}}">
+                {{website.link}}
+              </a>
+            </small>
+            <br>
           {{/each}}
         </div>
       </div>

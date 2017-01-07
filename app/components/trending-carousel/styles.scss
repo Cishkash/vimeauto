@@ -1,12 +1,13 @@
 & {
-  box-shadow: 0 1px 3px #ddd;
   margin-top: 4.3rem;
   margin-bottom: 1rem;
+  background: rgb(0,0,0);
+  box-shadow: 0 1px 3px #ddd;
 
   .carousel-item {
     height: 25rem;
-    background-position: right;
     background-repeat: no-repeat;
+    background-position: right;
 
     > img {
       bottom: 0;
@@ -23,8 +24,8 @@
 
   .carousel-caption {
     top: 0;
+    left: 10%;
     height: 10rem;
     margin-top: 2rem;
-    left: 10%;
   }
 }

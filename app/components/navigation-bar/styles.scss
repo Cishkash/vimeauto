@@ -2,7 +2,7 @@
   .btn-group {
     button {
       &:hover {
-        opacity: .90;
+        opacity: 0.90;
       }
     }
     .btn-category {
@@ -17,7 +17,7 @@
     }
   }
   .navbar-brand {
-    font-family: 'Arima Madurai', cursive;
+    font-family: "Arima Madurai", cursive;
   }
   .delete-gap {
     margin-left: 0.3rem;
