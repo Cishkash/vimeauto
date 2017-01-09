@@ -35,7 +35,7 @@
             </small>
             <br>
           {{/each}}
-          <button type="button" class="btn btn-primary btn-watch">Watch now!</button>
+          {{link-to "Watch now!" "videos" trending.videoId class="btn btn-primary btn-watch" tagName="button"}}
         </div>
       </div>
     {{/each}}
