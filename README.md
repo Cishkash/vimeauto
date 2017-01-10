@@ -12,12 +12,13 @@ You will need the following things properly installed on your computer.
 * [Bower](https://bower.io/)
 * [Ember CLI](https://ember-cli.com/)
 * [PhantomJS](http://phantomjs.org/)
+* [Yarn](https://yarnpkg.com/)
 
 ## Installation
 
 * `git clone <repository-url>` this repository
 * `cd vimeauto`
-* `npm install`
+* `yarn install`
 * `bower install`
 
 ## Running / Development
