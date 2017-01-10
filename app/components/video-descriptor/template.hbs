@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <div class="row flex-items-xs-middle">
+  <div class="row flex-items-xs-top">
     <div class="col-xs-1">
       <img class="circular" src="{{model.user.pictures.sizes.2.link}}" data-test="video-user-image">
     </div>
@@ -11,13 +11,14 @@
           {{moment-format model.created_date 'MM-DD-YYYY' "YYYY-MM-DD"}} at {{model.created_time}}
         </small>
       </h5>
+      <div data-test="video-description">
+        <p>{{model.description}}</p>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-1">
-    </div>
-    <div class="col-xs-8" data-test="video-description">
-      <p>{{model.description}}</p>
+    <div class="col-xs-3">
+      {{#each categoryService.selectedCategories as |selectedCategory|}}
+        <p>{{selectedCategory.name}}</p>
+      {{/each}}
     </div>
   </div>
 </div>
