@@ -20,5 +20,5 @@ export default DS.Model.extend({
   subcategories: DS.attr(),
   icon: DS.attr(),
   resource_key: DS.attr(),
-  categoryKey: DS.attr()
+  key: DS.attr()
 });

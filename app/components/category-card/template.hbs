@@ -2,7 +2,7 @@
   <div class="card card-inverse card-outline-primary">
     <img class="card-img-top img-fluid" src="{{category.pictures.sizes.2.link}}" alt="{{category.name}}" data-test="card-category-image">
     <div class="card-img-overlay">
-      <a {{action "addCategory" category.name category.uri category.categoryKey target=categoryService}} href="#">
+      <a {{action "addCategory" category.name category.uri category.key target=categoryService}} href="#">
         <h5 class="card-title btn-link text-primary" data-test="card-category-title">
           {{category.name}} {{fa-icon "plus-circle" pull="right"}}
         </h5>

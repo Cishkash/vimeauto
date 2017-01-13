@@ -111,7 +111,9 @@ export default Ember.Service.extend({
       Ember.set(category, 'key', categoryKey);
       Ember.set(category, 'name', categoryName);
       Ember.set(category, 'uri', categoryUri);
-      Ember.set(category, 'videos', this.fetchCategoryVideos(categoryKey));
+      this.fetchCategoryVideos(categoryKey).then(videos => {
+        Ember.set(category, 'videos', videos)
+      });
 
       selectedCategories.push(category);
       this.set('selectedCategories', selectedCategories);
@@ -140,9 +142,7 @@ export default Ember.Service.extend({
    * @returns {Promise}
    */
   fetchCategoryVideos(category) {
-    return this.get('ajax').request('/categories/videos/' + category).then(
-      res => res
-    ).catch( err => err );
+    return this.get('ajax').request('categories/videos/' + category);
   },
   /**
    * Removes a category based on the index the user selected from their

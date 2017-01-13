@@ -16,7 +16,8 @@
           {{fa-icon "times-circle"}}
         </button>
         <div class="dropdown-menu dropdown-menu-right">
-          <a class="dropdown-item" href="#">Watch featured</a>
+          {{link-to 'Watch top featured' 'videos' selectedCategory.videos.0.key
+            tagName="a" class="dropdown-item"}}
           <a class="dropdown-item" href="#">Mix it up</a>
           <hr>
           <a class="dropdown-item {{if (lt categoryService.selectedCategories.length 2) 'text-muted disabled'}}" href="#">
