@@ -1,4 +1,5 @@
 import Ember from 'ember';
+const { inject } = Ember;
 
 /**
  * Category service. Stores user category selection cross components.
@@ -8,6 +9,15 @@ import Ember from 'ember';
  * @extends Ember.Service
  */
 export default Ember.Service.extend({
+
+  /**
+   * Extended ajax service from the ember-ajax addon. It's basically an adapter
+   * for components.
+   *
+   * @property ajax
+   * @type {Class.Object}
+   */
+  ajax: inject.service(),
   /**
    * Boolean determines if the user is at the limited category capacity.
    * Evaluated when a user adds or deletes a category from their list.
@@ -86,7 +96,7 @@ export default Ember.Service.extend({
   * @method selectCategory
   * @param category The category object selected by the user
   */
-  addCategory(categoryName, categoryUri) {
+  addCategory(categoryName, categoryUri, categoryKey) {
     let category = {},
         selectedCategories = this.get('selectedCategories');
 
@@ -98,8 +108,10 @@ export default Ember.Service.extend({
          !selectedCategories.find(selectedCategory => selectedCategory.name === categoryName) ) {
 
       Ember.set(category, 'assignedColor', this._assignAnotherColor());
+      Ember.set(category, 'key', categoryKey);
       Ember.set(category, 'name', categoryName);
       Ember.set(category, 'uri', categoryUri);
+      Ember.set(category, 'videos', this.fetchCategoryVideos(categoryKey));
 
       selectedCategories.push(category);
       this.set('selectedCategories', selectedCategories);
@@ -119,6 +131,18 @@ export default Ember.Service.extend({
 
       return;
     }
+  },
+  /**
+   * Fetches the videos of a selected category.
+   *
+   * @method fetchCategoryVideos
+   * @param category The selected category
+   * @returns {Promise}
+   */
+  fetchCategoryVideos(category) {
+    return this.get('ajax').request('/categories/videos/' + category).then(
+      res => res
+    ).catch( err => err );
   },
   /**
    * Removes a category based on the index the user selected from their
