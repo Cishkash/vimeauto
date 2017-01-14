@@ -1,18 +1,26 @@
 <div class="container-fluid">
-  <div class="row flex-items-xs-top">
-    <div class="col-xs-1">
-      <img class="circular" src="{{model.user.pictures.sizes.2.link}}" data-test="video-user-image">
-    </div>
-    <div class="col-xs-8">
-      <h2 data-test="video-title">{{model.name}}</h2>
-      <h5>
-        <a href="{{model.user.link}}" data-test="video-user-name">{{model.user.name}}</a>
-        <small class="text-muted" data-test="video-created">
-          {{moment-format model.created_date 'MM-DD-YYYY' "YYYY-MM-DD"}} at {{model.created_time}}
-        </small>
-      </h5>
-      <div data-test="video-description">
-        <p>{{model.description}}</p>
+  <div class="row flex-items-md-top">
+    <div class="col-xs-12 col-md-9">
+      <div class="row flex-items-xs-bottom text-xs-center text-sm-left">
+        <div class="col-xs-12 col-sm-2">
+          <img class="circular" src="{{model.user.pictures.sizes.2.link}}" data-test="video-user-image">
+        </div>
+        <div class="col-sm-10">
+          <h2 data-test="video-title">{{model.name}}</h2>
+          <h5>
+            <a href="{{model.user.link}}" data-test="video-user-name">{{model.user.name}}</a>
+            <small class="text-muted" data-test="video-created">
+              {{moment-format model.created_date 'MM-DD-YYYY' "YYYY-MM-DD"}} at {{model.created_time}}
+            </small>
+          </h5>
+        </div>
+      </div>
+      <div class="row flex-items-xs-right">
+        <div class="col-xs-12 col-md-10">
+          <div data-test="video-description">
+            <p>{{model.description}}</p>
+          </div>
+        </div>
       </div>
     </div>
     <div class="col-xs-3">
