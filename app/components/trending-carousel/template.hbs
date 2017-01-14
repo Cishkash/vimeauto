@@ -1,5 +1,5 @@
 <div id="carousel-trending" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
+  <ol class="carousel-indicators hidden-xs-down">
     {{#each trendings as |trending index|}}
       <li data-target="#carousel-trending-videos"
         class="{{if (eq trending trendings.firstObject) 'active'}}"
@@ -26,15 +26,17 @@
               </small>
             {{/if}}
           </p>
-          {{#each trending.user.websites as |website siteIndex|}}
-            <small>
-              <a href="{{website.link}}"
-                data-test="trending-{{index}}-website-{{siteIndex}}">
-                {{website.link}}
-              </a>
-            </small>
-            <br>
-          {{/each}}
+          <div class="hidden-xs-down">
+            {{#each trending.user.websites as |website siteIndex|}}
+              <small>
+                <a href="{{website.link}}"
+                  data-test="trending-{{index}}-website-{{siteIndex}}">
+                  {{website.link}}
+                </a>
+              </small>
+              <br>
+            {{/each}}
+          </div>
           {{link-to "Watch now!" "videos" trending.videoId class="btn btn-primary btn-watch" tagName="button"}}
         </div>
       </div>
