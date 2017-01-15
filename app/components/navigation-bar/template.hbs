@@ -16,9 +16,12 @@
           {{fa-icon "times-circle"}}
         </button>
         <div class="dropdown-menu dropdown-menu-right">
-          {{link-to 'Watch top featured' 'videos' selectedCategory.videos.0.key
-            tagName="a" class="dropdown-item"}}
-          <a class="dropdown-item" href="#">Mix it up</a>
+          <a class="dropdown-item"
+             {{action "transitionToVideo" selectedCategory.videos.0.key}}
+             href="#">Watch top featured</a>
+          <a class="dropdown-item"
+             {{action "transitionRandomVideo" selectedCategory.videos}}
+             href="#">Mix it up</a>
           <hr>
           <a class="dropdown-item {{if (lt categoryService.selectedCategories.length 2) 'text-muted disabled'}}" href="#">
             Vimeauto a playlist
