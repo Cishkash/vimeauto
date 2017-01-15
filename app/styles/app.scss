@@ -1,6 +1,7 @@
 $enable-flex: true;
 @import "bootstrap";
 @import "pod-styles";
+@import "./index";
 
 body, html {
   width: 100%;
