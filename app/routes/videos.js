@@ -21,7 +21,7 @@ export default Ember.Route.extend({
     // This situation _should_ never happen cause the record gets unloaded
     // immediately, but this is development so I'm noting this as a possible
     // fault in my code and I need to circle back to this.
-    if (!this.store.recordIsLoaded) {
+    if (!this.store.recordIsLoaded('video', params.video_id)) {
       return this.store.findRecord('video', params.video_id);
     }
     return;
