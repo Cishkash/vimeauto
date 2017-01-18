@@ -7,5 +7,6 @@ export default DS.Model.extend({
   embed: DS.attr(),
   link: DS.attr(),
   name: DS.attr(),
+  pictures: DS.attr(),
   user: DS.attr()
 });

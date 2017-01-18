@@ -1,7 +1,15 @@
 <div class="container-fluid">
   <div class="row flex-items-xs-center flex-items-xs-middle">
-    <h5>Now Playing:</h5>
-    <img src={{model.pictures.sizes.0.link}} class="circular">
+    <div class="col-xs">
+      <h5>Your queue:</h5>
+    </div>
+  </div>
+
+  <div class="row flex-items-xs-center flex-items-xs-middle">
+    <div class="col-xs video-queue-image">
+      <img src={{model.pictures.sizes.0.link}} class="circular">
+    </div>
+    <hr>
   </div>
 </div>
 {{yield}}
