@@ -1,0 +1,13 @@
+& {
+  position: relative;
+
+  img.circular {
+    border-radius: 50%;
+  }
+
+  > .queue-description {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}

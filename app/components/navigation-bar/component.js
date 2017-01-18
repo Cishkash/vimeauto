@@ -24,6 +24,8 @@ export default Ember.Component.extend({
     transitionRandomVideo(videos) {
       let r = Math.floor(Math.random() * 10);
 
+      this.set('categoryService.nowPlaying', videos[r]);
+
       Ember.getOwner(this).lookup('router:main').transitionTo('videos', videos[r].key);
     },
     /**

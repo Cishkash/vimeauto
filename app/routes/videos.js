@@ -9,13 +9,22 @@ import Ember from 'ember';
  */
 export default Ember.Route.extend({
   /**
-   * Fetches the video model for the provided video id.
+   * Model fetch for the route.
+   * Should resolve issues where we attempt to transition to a route that the
+   * user is already on.
    *
    * @event model
    * @return {Promise}
    */
   model(params) {
-    return this.store.findRecord('video', params.video_id);
+    // Just a quick check to make sure the model is not already in the store.
+    // This situation _should_ never happen cause the record gets unloaded
+    // immediately, but this is development so I'm noting this as a possible
+    // fault in my code and I need to circle back to this.
+    if (!this.store.recordIsLoaded) {
+      return this.store.findRecord('video', params.video_id);
+    }
+    return;
   },
   /**
    * After model hook that unloads the record from the store after the model is
@@ -27,8 +36,7 @@ export default Ember.Route.extend({
    * @return {undefined}
    */
   afterModel(model) {
-    this.store.findRecord('video', model.id).then( video => {
-      this.store.unloadRecord(video);
-    });
+    const video = this.store.peekRecord('video', model.id);
+    this.store.unloadRecord(video);
   }
 });

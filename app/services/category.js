@@ -112,7 +112,7 @@ export default Ember.Service.extend({
       Ember.set(category, 'name', categoryName);
       Ember.set(category, 'uri', categoryUri);
       this.fetchCategoryVideos(categoryKey).then(videos => {
-        Ember.set(category, 'videos', videos)
+        Ember.set(category, 'videos', videos);
       });
 
       selectedCategories.push(category);
