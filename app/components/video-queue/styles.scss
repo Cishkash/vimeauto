@@ -1,11 +1,27 @@
+$active-video: rgb(200, 153, 0);
+$hover-video: rgb(0, 255, 0);
+
 & {
   .video-queue-image {
+    text-align: center;
 
     img.circular {
       width: 4rem;
       height: 4rem;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
 
       border-radius: 50%;
+
+      &.active {
+        border: 1px solid $active-video;
+        box-shadow: 0 0 10px $active-video;
+      }
+
+      &:hover:not(.active) {
+        border: 1px solid $hover-video;
+        box-shadow: 0 0 10px $hover-video;
+      }
     }
 
     > .queue-description {
