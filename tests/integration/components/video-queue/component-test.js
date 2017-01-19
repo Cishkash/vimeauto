@@ -9,6 +9,6 @@ test('it renders', function(assert) {
 
   this.render(hbs`{{video-queue}}`);
 
-  assert.ok(this.$().text().includes('Now Playing:'),
+  assert.ok(this.$().text().includes('\"\" queue:'),
             'Component renders with now playing text');
 });

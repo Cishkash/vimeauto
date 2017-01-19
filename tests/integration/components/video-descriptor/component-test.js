@@ -39,8 +39,6 @@ moduleForComponent('video-descriptor', 'Integration | Component | video descript
 
 test('it renders', function(assert) {
   this.render(hbs`{{video-descriptor model=model}}`);
-  console.log(this.$().html());
-  console.log(defaultProperties.model.user.pictures.sizes[2].link);
 
   assert.ok(this.$('[data-test="video-user-image"]').attr('src').includes(defaultProperties.model.user.pictures.sizes[2].link),
             'Image src is populated with model picture link');
