@@ -28,6 +28,15 @@ export default Ember.Service.extend({
    */
   atCapacity: false,
   /**
+   * The Vime(auto) flag determines when a user enters a vimeauto playlist and
+   * changes up the queue to match that experience.
+   *
+   * @property isVimeauto
+   * @type {Boolean}
+   * @default {false}
+   */
+  isVimeauto: false,
+  /**
    * Array of category selections. Limited to 5.
    *
    * @property selectedCategories

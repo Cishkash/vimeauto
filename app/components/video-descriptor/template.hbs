@@ -24,9 +24,16 @@
       </div>
     </div>
     <div class="col-xs-3 video-queue">
-      {{#each categoryService.selectedCategories as |selectedCategory|}}
-        {{video-queue selectedCategory=selectedCategory model=model}}
-      {{/each}}
+      {{#if categoryService.isVimeauto}}
+        {{vimeauto-queue
+          flattenedVideosArr=categoryService.flattenedVideosArr
+          model=model
+          class="queue"}}
+      {{else}}
+        {{#each categoryService.selectedCategories as |selectedCategory|}}
+          {{video-queue selectedCategory=selectedCategory model=model class="queue"}}
+        {{/each}}
+      {{/if}}
     </div>
   </div>
 </div>

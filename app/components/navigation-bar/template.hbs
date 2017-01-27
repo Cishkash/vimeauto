@@ -23,7 +23,9 @@
              {{action "transitionRandomVideo" selectedCategory.videos}}
              href="#">Mix it up</a>
           <hr>
-          <a class="dropdown-item {{if (lt categoryService.selectedCategories.length 2) 'text-muted disabled'}}" href="#">
+          <a class="dropdown-item {{if (lt categoryService.selectedCategories.length 2) 'text-muted disabled'}}"
+             {{action "transitionToVimeauto"}}
+             href="#">
             Vimeauto a playlist
           </a>
         </div>

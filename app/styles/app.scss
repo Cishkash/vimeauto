@@ -2,6 +2,7 @@ $enable-flex: true;
 @import "bootstrap";
 @import "pod-styles";
 @import "./index";
+@import "./queue";
 
 body, html {
   width: 100%;
