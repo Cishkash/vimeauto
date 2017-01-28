@@ -1,9 +1,12 @@
 $descriptor-gap: 3rem;
 
+.brand {
+  color: #ff8c00;
+}
+
 .vimeauto-description {
+  margin-top: 2rem;
   margin-bottom: 2rem;
   padding-top: $descriptor-gap;
   padding-bottom: $descriptor-gap;
-
-  background: rgb(225,225,225);
 }
