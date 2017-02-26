@@ -3,12 +3,12 @@
   "version": "0.0.0",
   "description": "Small description for vimeauto goes here",
   "license": "MIT",
-  "author": "",
+  "author": "Robby Mitchell",
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "repository": "https://github.com/Cishkash/vimeauto.git",
   "scripts": {
     "build": "ember build",
     "start": "ember server",
